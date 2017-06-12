@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://image/gun.png" type="Texture" id=1]
+[ext_resource path="res://scripts/gun.gd" type="Script" id=2]
+[ext_resource path="res://scene/bullet.tscn" type="PackedScene" id=3]
+
+[node name="gun" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="bullet" parent="Sprite" instance=ExtResource( 3 )]
+
+visibility/visible = false
+
+

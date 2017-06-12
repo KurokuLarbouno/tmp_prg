@@ -1,0 +1,172 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scripts/Scene1.gd" type="Script" id=1]
+
+[node name="Node" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 615.0
+margin/top = 201.0
+margin/right = 728.0
+margin/bottom = 260.0
+text = "scene1
+choose a value
+"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_Button1" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 474.0
+margin/top = 336.0
+margin/right = 530.0
+margin/bottom = 360.0
+text = "k1"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_Button2" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 593.0
+margin/top = 335.0
+margin/right = 649.0
+margin/bottom = 359.0
+text = "k2"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_Button3" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 718.0
+margin/top = 333.0
+margin/right = 774.0
+margin/bottom = 357.0
+text = "k1"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label_Button4" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 837.0
+margin/top = 332.0
+margin/right = 893.0
+margin/bottom = 356.0
+text = "k2"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button1" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 491.0
+margin/top = 304.0
+margin/right = 512.0
+margin/bottom = 324.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "R"
+flat = false
+
+[node name="Button2" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 610.0
+margin/top = 304.0
+margin/right = 631.0
+margin/bottom = 324.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "B"
+flat = false
+
+[node name="Button3" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 735.0
+margin/top = 301.0
+margin/right = 756.0
+margin/bottom = 321.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "B"
+flat = false
+
+[node name="Button4" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 854.0
+margin/top = 301.0
+margin/right = 875.0
+margin/bottom = 321.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "P"
+flat = false
+
+[node name="Button_Send" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 617.0
+margin/top = 416.0
+margin/right = 727.0
+margin/bottom = 436.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Send to Scene2"
+flat = false
+
+[connection signal="pressed" from="Button_Send" to="." method="_on_Send_pressed"]
+
+

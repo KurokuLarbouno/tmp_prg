@@ -1,0 +1,251 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://scripts/player2.gd" type="Script" id=1]
+[ext_resource path="res://image/cat-shadow.png" type="Texture" id=2]
+[ext_resource path="res://image/cat-4.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 0.270181, -17.2641, 10.2611, -11.0405, 10.2611, 10.1199, 0.270181, 18.833, -9.72072, 10.1199, -9.72072, -11.0405 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "shoot"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "stop"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 4 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "walk"
+length = 0.35
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.35
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../shootfrom:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( -31, 12 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.35
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../shootfrom:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 37, 12 ) ]
+}
+
+[node name="player" type="KinematicBody2D" groups=[
+"player_group",
+]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.800729, 0, 0, 0.803388, 1.78366, 22.8698 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+BULLET_QUANTITY = 10
+BULLET_CHANGE_TME = 1
+MOTION_SPEED = 140
+health = 100
+
+[node name="Sprite" type="Sprite" parent="." groups=[
+"sprite",
+]]
+
+visibility/opacity = 0.4
+transform/pos = Vector2( -6, -20 )
+texture = ExtResource( 2 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="player_Sprite" type="Sprite" parent="." groups=[
+"sprite",
+]]
+
+transform/pos = Vector2( -7.23082, 10.8487 )
+texture = ExtResource( 3 )
+offset = Vector2( 20, 0 )
+flip_h = true
+hframes = 9
+frame = 3
+region_rect = Rect2( 0, 0, 32, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="anim" type="AnimationPlayer" parent="player_Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/shoot = SubResource( 2 )
+anims/stop = SubResource( 3 )
+anims/walk = SubResource( 4 )
+anims/walk_left = SubResource( 5 )
+anims/walk_right = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 1.78366, 22.8698 )
+transform/scale = Vector2( 0.800729, 0.803388 )
+build_mode = 0
+polygon = Vector2Array( -9.72072, -11.0405, -9.72072, 10.1199, 0.270181, 18.833, 10.2611, 10.1199, 10.2611, -11.0405, 0.270181, -17.2641 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shootfrom" type="Position2D" parent="."]
+
+transform/pos = Vector2( 37, 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="player_area" type="Area2D" parent="."]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="body_enter" from="player_area" to="." method="_on_player_area_body_enter"]
+
+

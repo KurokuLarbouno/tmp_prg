@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/nPlayer.gd" type="Script" id=1]
+[ext_resource path="res://image/cat-shadow.png" type="Texture" id=2]
+[ext_resource path="res://image/fighter-1.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 10.6319, -7.99321, 11.026, 13.3808, 1.83174, 19.4966, -9.40801, 13.4309, -9.40801, -7.79922, 0.582882, -14.8759 )
+
+[node name="player" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.800729, 0, 0, 0.989163, 2.53327, 15.7147 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+BULLET_QUANTITY = 10
+BULLET_CHANGE_TME = 1
+MOTION_SPEED = 140
+health = 100
+
+[node name="Sprite" type="Sprite" parent="." groups=[ "sprite" ]]
+
+visibility/opacity = 0.4
+transform/pos = Vector2( -6, -22 )
+texture = ExtResource( 2 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="player_Sprite" type="Sprite" parent="." groups=[ "sprite" ]]
+
+transform/pos = Vector2( -13, 7 )
+texture = ExtResource( 3 )
+hframes = 5
+region_rect = Rect2( 0, 0, 32, 64 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+
+transform/pos = Vector2( 2.53327, 15.7147 )
+transform/scale = Vector2( 0.800729, 0.989163 )
+build_mode = 0
+polygon = Vector2Array( 0.582882, -14.8759, -9.40801, -7.79922, -9.40801, 13.4309, 1.83174, 19.4966, 11.026, 13.3808, 10.6319, -7.99321 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+[node name="shootfrom" type="Position2D" parent="."]
+
+transform/pos = Vector2( -34, -1 )
+
+[node name="player_area" type="Area2D" parent="."]
+
+transform/pos = Vector2( 0.581131, 1.64512 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="body_enter" from="player_area" to="." method="_on_player_area_body_enter"]
+
+
